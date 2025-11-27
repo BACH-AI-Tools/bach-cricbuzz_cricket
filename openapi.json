@@ -1,0 +1,1661 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Cricbuzz Cricket",
+    "version": "1.0.0",
+    "description": "RapidAPI: cricketapilive/cricbuzz-cricket"
+  },
+  "servers": [
+    {
+      "url": "https://cricbuzz-cricket.p.rapidapi.com"
+    }
+  ],
+  "paths": {
+    "/mcenter/v1/{matchId}/hscard": {
+      "get": {
+        "summary": "matches/get-scorecard-v2",
+        "description": "Get match scorecard",
+        "operationId": "matches/get_scorecard_v2",
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "40381",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/matches/v1/recent": {
+      "get": {
+        "summary": "matches/recent",
+        "description": "List Recent Matches",
+        "operationId": "matches/recent",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/matches/v1/live": {
+      "get": {
+        "summary": "matches/live",
+        "description": "GET Live Matches",
+        "operationId": "matches/live",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/matches/v1/upcoming": {
+      "get": {
+        "summary": "matches/upcoming",
+        "description": "List Upcoming Matches",
+        "operationId": "matches/upcoming",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcenter/v1/{matchId}/team/{teamId}": {
+      "get": {
+        "summary": "matches/get-team",
+        "description": "Get players attended the match",
+        "operationId": "matches/get_team",
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "35878",
+              "enum": null
+            }
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "description": "The value of teamId returned in …/matches/get-info endpoint",
+            "schema": {
+              "type": "string",
+              "default": "9",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcenter/v1/{matchId}": {
+      "get": {
+        "summary": "matches/get-info",
+        "description": "Get match info",
+        "operationId": "matches/get_info",
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "41881",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/matches/v1/{type}": {
+      "get": {
+        "summary": "matches/list",
+        "description": "List live, recent, upcoming matches",
+        "operationId": "matches/list",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : live|recent|upcoming",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/rankings/{category}": {
+      "get": {
+        "summary": "stats/get-icc-rankings",
+        "description": "Get ICC rankings",
+        "operationId": "stats/get_icc_rankings",
+        "parameters": [
+          {
+            "name": "formatType",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : test|odi|t20 (if isWomen parameter is 1, there will be no odi)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "isWomen",
+            "in": "query",
+            "required": false,
+            "description": "Set to 1 to get rankings for women",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : batsmen|bowlers|allrounders|teams",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/topstats/0": {
+      "get": {
+        "summary": "stats/get-records",
+        "description": "Get records",
+        "operationId": "stats/get_records",
+        "parameters": [
+          {
+            "name": "statsType",
+            "in": "query",
+            "required": true,
+            "description": "The value of 'value' field returned in …/stats/get-record-filters endpoint",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": false,
+            "description": "Specify year to get records. Ex : 2021",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "matchType",
+            "in": "query",
+            "required": false,
+            "description": "The value of matchTypeId field returned right in this endpoint",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "team",
+            "in": "query",
+            "required": false,
+            "description": "The value of teamId field returned right in this endpoint",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "opponent",
+            "in": "query",
+            "required": false,
+            "description": "The value of teamId field returned right in this endpoint",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/iccstanding/team/matchtype/{matchType}": {
+      "get": {
+        "summary": "stats/get-icc-standings",
+        "description": "Get ICC standings",
+        "operationId": "stats/get_icc_standings",
+        "parameters": [
+          {
+            "name": "seasonId",
+            "in": "query",
+            "required": false,
+            "description": "The value of seasonStandings/id field returned right in this endpoint",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "matchType",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : 1-World test championship|2-World cup super league",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/topstats": {
+      "get": {
+        "summary": "stats/get-record-filters",
+        "description": "Get record filters",
+        "operationId": "stats/get_record_filters",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/cat/{categoryId}": {
+      "get": {
+        "summary": "news/list-by-category",
+        "description": "List latest news by category",
+        "operationId": "news/list_by_category",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "required": true,
+            "description": "Filter news by category, the value of id field returned in …/news/get-categories",
+            "schema": {
+              "type": "string",
+              "default": "5",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/topics/{topicId}": {
+      "get": {
+        "summary": "news/list-by-topic",
+        "description": "List latest news by topic",
+        "operationId": "news/list_by_topic",
+        "parameters": [
+          {
+            "name": "topicId",
+            "in": "query",
+            "required": true,
+            "description": "Filter news by topic, the value of id field returned in …/news/get-topics",
+            "schema": {
+              "type": "string",
+              "default": "349",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/player/{playerId}/career": {
+      "get": {
+        "summary": "players/get-career",
+        "description": "Get player career",
+        "operationId": "players/get_career",
+        "parameters": [
+          {
+            "name": "playerId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/players/list-trending, …/players/search endpoints",
+            "schema": {
+              "type": "string",
+              "default": "8733",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/player/{playerId}": {
+      "get": {
+        "summary": "players/get-news",
+        "description": "Get news by player",
+        "operationId": "players/get_news",
+        "parameters": [
+          {
+            "name": "playerId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/players/list-trending, …/players/search endpoints",
+            "schema": {
+              "type": "string",
+              "default": "8733",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/venue/{venueId}": {
+      "get": {
+        "summary": "venues/get-stats",
+        "description": "Get stats by venue",
+        "operationId": "venues/get_stats",
+        "parameters": [
+          {
+            "name": "venueId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/get-venues endpoint",
+            "schema": {
+              "type": "string",
+              "default": "24",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/venues/v1/{venueId}": {
+      "get": {
+        "summary": "venues/get-info",
+        "description": "Get venue info",
+        "operationId": "venues/get_info",
+        "parameters": [
+          {
+            "name": "venueId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/get-venues endpoint",
+            "schema": {
+              "type": "string",
+              "default": "45",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/v1/{teamId}/schedule": {
+      "get": {
+        "summary": "teams/get-schedules",
+        "description": "Get scheduled matches for a team",
+        "operationId": "teams/get_schedules",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "description": "The value of teamId field returned in …/teams/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "2",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/v1/{teamId}/players": {
+      "get": {
+        "summary": "teams/get-players",
+        "description": "Get players by team",
+        "operationId": "teams/get_players",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "description": "The value of teamId field returned in …/teams/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "2",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/v1/{teamId}/results": {
+      "get": {
+        "summary": "teams/get-results",
+        "description": "Get matched results by team",
+        "operationId": "teams/get_results",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "description": "The value of teamId field returned in …/teams/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "2",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/team/{teamId}": {
+      "get": {
+        "summary": "teams/get-stats-filters",
+        "description": "Get supported filters",
+        "operationId": "teams/get_stats_filters",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "description": "The value of teamId field returned in …/teams/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "2",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/v1/{seriesId}": {
+      "get": {
+        "summary": "series/get-matches",
+        "description": "Get recent and upcoming matches by series",
+        "operationId": "series/get_matches",
+        "parameters": [
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/list or …/series/list-archives endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "3641",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/v1/{seriesId}/squads": {
+      "get": {
+        "summary": "series/get-squads",
+        "description": "Get squads by series",
+        "operationId": "series/get_squads",
+        "parameters": [
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/list or …/series/list-archives endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "3718",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/series/{seriesId}/points-table": {
+      "get": {
+        "summary": "series/get-points-table",
+        "description": "Get points table by series",
+        "operationId": "series/get_points_table",
+        "parameters": [
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/list or …/series/list-archives endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "3718",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/series/{seriesId}": {
+      "get": {
+        "summary": "series/get-stats-filters",
+        "description": "Get supported filters",
+        "operationId": "series/get_stats_filters",
+        "parameters": [
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/list or …/series/list-archives endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "3718",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/img/v1/i1/{imageId}/i.jpg": {
+      "get": {
+        "summary": "get-image",
+        "description": "This endpoint is used to get image by id",
+        "operationId": "get_image",
+        "parameters": [
+          {
+            "name": "imageId",
+            "in": "query",
+            "required": true,
+            "description": "Add 'c' in the front of imageId",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photos/v1/detail/{galleryId}": {
+      "get": {
+        "summary": "photos/get-gallery",
+        "description": "Get photo gallery",
+        "operationId": "photos/get_gallery",
+        "parameters": [
+          {
+            "name": "galleryId",
+            "in": "query",
+            "required": true,
+            "description": "galleryId from photos/list service",
+            "schema": {
+              "type": "string",
+              "default": "5374",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photos/v1/index": {
+      "get": {
+        "summary": "photos/list",
+        "description": "List photo galleries",
+        "operationId": "photos/list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/topics": {
+      "get": {
+        "summary": "news/get-topics",
+        "description": "Get all available topics",
+        "operationId": "news/get_topics",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/cat": {
+      "get": {
+        "summary": "news/get-categories",
+        "description": "Get all available categories",
+        "operationId": "news/get_categories",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/detail/{newsId}": {
+      "get": {
+        "summary": "news/detail",
+        "description": "Get news detail",
+        "operationId": "news/detail",
+        "parameters": [
+          {
+            "name": "newsId",
+            "in": "query",
+            "required": true,
+            "description": "The value of story/id field returned in …/news/list …/news/list-by-category …/news/list-by-topic endpoint",
+            "schema": {
+              "type": "string",
+              "default": "122025",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/{type}": {
+      "get": {
+        "summary": "news/list",
+        "description": "List latest news",
+        "operationId": "news/list",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : index|premiumIndex",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/player/{playerId}/bowling": {
+      "get": {
+        "summary": "players/get-bowling",
+        "description": "Get player's bowling",
+        "operationId": "players/get_bowling",
+        "parameters": [
+          {
+            "name": "playerId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/players/list-trending, …/players/search endpoints",
+            "schema": {
+              "type": "string",
+              "default": "8733",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/player/{playerId}/batting": {
+      "get": {
+        "summary": "players/get-batting",
+        "description": "Get player's batting",
+        "operationId": "players/get_batting",
+        "parameters": [
+          {
+            "name": "playerId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/players/list-trending, …/players/search endpoints",
+            "schema": {
+              "type": "string",
+              "default": "8733",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/player/{playerId}": {
+      "get": {
+        "summary": "players/get-info",
+        "description": "Get player info",
+        "operationId": "players/get_info",
+        "parameters": [
+          {
+            "name": "playerId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/players/list-trending, …/players/search endpoints",
+            "schema": {
+              "type": "string",
+              "default": "6635",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/player/search": {
+      "get": {
+        "summary": "players/search",
+        "description": "Search player by name",
+        "operationId": "players/search",
+        "parameters": [
+          {
+            "name": "plrN",
+            "in": "query",
+            "required": true,
+            "description": "Example value: Tucker",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/v1/player/trending": {
+      "get": {
+        "summary": "players/list-trending",
+        "description": "List trending players",
+        "operationId": "players/list_trending",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/venues/v1/{venueId}/matches": {
+      "get": {
+        "summary": "venues/get-matches",
+        "description": "Get scheduled matches by venue",
+        "operationId": "venues/get_matches",
+        "parameters": [
+          {
+            "name": "venueId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/get-venues endpoint",
+            "schema": {
+              "type": "string",
+              "default": "45",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/team/{teamId}": {
+      "get": {
+        "summary": "teams/get-news",
+        "description": "Get news by team",
+        "operationId": "teams/get_news",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "description": "The value of teamId field returned in …/teams/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "2",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/v1/{type}": {
+      "get": {
+        "summary": "teams/list",
+        "description": "List teams",
+        "operationId": "teams/list",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "international|league|domestic|women",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/v1/{seriesId}/venues": {
+      "get": {
+        "summary": "series/get-venues",
+        "description": "Get venues by series",
+        "operationId": "series/get_venues",
+        "parameters": [
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/list or …/series/list-archives endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "3718",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/v1/{seriesId}/squads/{squadId}": {
+      "get": {
+        "summary": "series/get-players",
+        "description": "Get players by squad and series",
+        "operationId": "series/get_players",
+        "parameters": [
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/list or …/series/list-archives endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "3718",
+              "enum": null
+            }
+          },
+          {
+            "name": "squadId",
+            "in": "query",
+            "required": true,
+            "description": "The value of squadId field returned in …/series/get-squads endpoint",
+            "schema": {
+              "type": "string",
+              "default": "15826",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/v1/series/{seriesId}": {
+      "get": {
+        "summary": "series/get-news",
+        "description": "Get news by series",
+        "operationId": "series/get_news",
+        "parameters": [
+          {
+            "name": "seriesId",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in …/series/list or …/series/list-archives endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "3636",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/v1/archives/{type}": {
+      "get": {
+        "summary": "series/list-archives",
+        "description": "List archived series",
+        "operationId": "series/list_archives",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "lastId",
+            "in": "query",
+            "required": false,
+            "description": "For paging purpose, leave empty to load the first page, or the value of id field returned right in this endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : international|league|domestic|women",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/v1/{type}": {
+      "get": {
+        "summary": "series/list",
+        "description": "List series",
+        "operationId": "series/list",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : international|league|domestic|women",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcenter/v1/{matchId}/scard": {
+      "get": {
+        "summary": "matches/get-scorecard",
+        "description": "Get match scorecard",
+        "operationId": "matches/get_scorecard",
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "40381",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcenter/v1/{matchId}/leanback": {
+      "get": {
+        "summary": "matches/get-leanback",
+        "description": "Get match leanback",
+        "operationId": "matches/get_leanback",
+        "parameters": [
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "40381",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcenter/v1/{matchId}/comm": {
+      "get": {
+        "summary": "matches/get-commentaries",
+        "description": "Get match commentaries",
+        "operationId": "matches/get_commentaries",
+        "parameters": [
+          {
+            "name": "iid",
+            "in": "query",
+            "required": false,
+            "description": "innings Id (Ex : 1)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "tms",
+            "in": "query",
+            "required": false,
+            "description": "For paging purpose, leave empty to load the first page, or an Epoch timestamp value in milliseconds (Ex : 1640883600000) to load the next page. You are interested in the 'timestamp' field returned right in this endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "41881",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcenter/v1/{matchId}/overs": {
+      "get": {
+        "summary": "matches/get-overs",
+        "description": "Get match overall",
+        "operationId": "matches/get_overs",
+        "parameters": [
+          {
+            "name": "iid",
+            "in": "query",
+            "required": false,
+            "description": "innings Id (Ex : 1)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "tms",
+            "in": "query",
+            "required": false,
+            "description": "For paging purpose, leave empty to load the first page, or an Epoch timestamp value in milliseconds (Ex : 1640883600000) to load the next page. You are interested in the 'timestamp' field returned right in this endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "41881",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcenter/v1/{matchId}/hcomm": {
+      "get": {
+        "summary": "matches/get-commentaries-v2",
+        "description": "Get match commentaries",
+        "operationId": "matches/get_commentaries_v2",
+        "parameters": [
+          {
+            "name": "iid",
+            "in": "query",
+            "required": false,
+            "description": "innings Id (Ex : 1)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "tms",
+            "in": "query",
+            "required": false,
+            "description": "For paging purpose, leave empty to load the first page, or an Epoch timestamp value in milliseconds (Ex : 1640883600000) to load the next page. You are interested in the 'timestamp' field returned right in this endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "query",
+            "required": true,
+            "description": "The value of matchId field returned in …/matches/list, …/schedules/list, …/series/get-matches, …/teams/get-schedules, …/teams/get-results, …/venues/get-matches endpoints.",
+            "schema": {
+              "type": "string",
+              "default": "41881",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedule/v1/{type}": {
+      "get": {
+        "summary": "schedules/list",
+        "description": "List scheduled matches",
+        "operationId": "schedules/list",
+        "parameters": [
+          {
+            "name": "lastTime",
+            "in": "query",
+            "required": false,
+            "description": "For paging purpose, leave empty to load the first page, or an Epoch timestamp value in milliseconds (Ex : 1640883600000) to load the next page. You are interested in the 'startDt' field returned right in this endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "One of the followings : international|league|domestic|women",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiAuth": []
+    }
+  ]
+}
